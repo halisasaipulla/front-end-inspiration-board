@@ -1,0 +1,12 @@
+.title {
+  background-color: aliceblue;
+  align-items: center;
+  cursor: default;
+  display: flex;
+  justify-content: center;
+}
+
+.active {
+  background-color: teal;
+  color: white;
+}

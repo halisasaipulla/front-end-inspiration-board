@@ -19,7 +19,7 @@ const BoardForm = ({ createNewBoard }) => {
         setOwner('');
     };
     return (
-        <div>
+        <div className="create-board-div">
             <form onSubmit={submitNewBoard} className='new-board-form'>
                 <label>Title</label>
                 <input 

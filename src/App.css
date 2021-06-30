@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+* {
+    border-style: solid;
+    border-color: red;
+}
 body {
 animation: 50000ms ease-in-out infinite color-change;
 }
@@ -43,5 +49,20 @@ flex-direction: row;
 justify-content: space-around;
 }
 .board-header {
-margin-left: 15%;
+margin-left: 5%;
+font-family: 'Roboto', sans-serif;
+font-size: xxx-large;
+text-shadow: 3px 3px #ffffff;
+color:rgb(59, 59, 59);
+
+}
+
+h2 {
+font-family: 'Roboto', sans-serif;
+text-shadow: 2px 2px #ffffff;
+color:rgb(59, 59, 59);
+}
+
+.board-sec div {
+width: 40%;
 }

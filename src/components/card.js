@@ -1,3 +1,6 @@
+import './card.css';
+
+
 const Card = () => {
     return (<div className='note'>
         <span>Our first card!</span>

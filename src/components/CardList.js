@@ -1,15 +1,16 @@
 import Card from './card';
-import cardForm from './cardForm';
+import CardForm from './cardForm';
 
 const CardList = ({ selectedBoard }) => {
     return (<section>
         <section>
-            <h2>Cards for </h2>
+            <h2>Cards for {selectedBoard.title} </h2>
             <div>
             <Card />
             </div>
+            <CardForm/> 
         </section>
-            <cardForm/>   
+          
     </section>
     );
 };

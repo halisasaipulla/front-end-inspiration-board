@@ -15,10 +15,11 @@ const App = () => {
     const [selectedBoard, setSelectedBoard] = useState({
         title: '',
         owner: '',
-        board_id: null
+        id: null
       });
     
     const [chosen, setChosen] = useState();
+
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_BACKEND_URL}/boards`, {
         }).then((response) => {
@@ -68,7 +69,7 @@ const App = () => {
                 </div>
             </section>
             <section>
-                {selectedBoard.board_id ? <CardList selectedBoard={selectedBoard}></CardList> : ''}
+                {selectedBoard.id ? <CardList selectedBoard={selectedBoard}></CardList> : ''}
             </section>
         </div>
     );

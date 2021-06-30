@@ -1,40 +1,47 @@
 import React, { useState } from 'react';
-// import './boardForm.css';
+import './boardForm.css';
 
-const CardForm = ({ createNewCard }) => {
-    // const [message, setMessage]=useState('');
-    // // const [owner, setOwner]=useState('');
-    // const handleMessageChange = (e) => { setMessage(e.target.value) };
-    // // const handleOwnerChange = (e) => { setOwner(e.target.value) };
-
-    // const submitNewCard = (e) => {
+const cardForm = () => {
+    // const [title, setTitle]=useState('');
+    // const [owner, setOwner]=useState('');
+    // const handleTitleChange = (e) => {
+    //     console.log(e.target.value); 
+    //     setTitle(e.target.value); };
+    // const handleOwnerChange = (e) => { 
+    //     console.log(e.target.value); 
+    //     setOwner(e.target.value); };
+    // const submitNewBoard = (e) => {
     //     e.preventDefault();
-    //     createNewCard({ message });
-    //     setMessage('');
-        
+    //     console.log(title);
+    //     console.log(owner);
+    //     createNewCard({ title, owner });
+    //     setTitle('');
+    //     setOwner('');
     // };
-
     return (
         <div>
-            <form  className='new-card-form'>
-                <label>Message</label>
+            <form>
+                <label>Title</label>
                 <input 
-                    type='text' 
-                    // value={message}
-                    // onChange={handleMessageChange}
-                    placeholder='Add a message'
+                    type='text'
+                    // value={title}
+                    // onChange={handleTitleChange}
+                    placeholder='Add a title'
                 />
-                {/* <label>Owner</label>
+                <label>Owner</label>
                 <input 
                     type='text' 
-                    value={owner}
-                    onChange={handleOwnerChange}
+                    // value={owner}
+                    // onChange={handleOwnerChange}
                     placeholder='Add a owner name'
-                /> */}
-                {/* <p>Preview: {message}</p> */}
-                <input type="Submit"/>
+                />
+                {/* <p>Preview: {title} - {owner}</p> */}
+                <input type="Submit"
+                // disabled={((title.length === 0) || (owner.length === 0) || (title.length > 40) || (owner.length > 40))}
+                />
             </form>
         </div>
     )
 }
-export default CardForm
+
+export default cardForm;

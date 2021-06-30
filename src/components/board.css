@@ -5,7 +5,7 @@
     margin-top: 3px;
     padding-left: 10px;
   }
-  .active {
-    background-color: teal;
-    color: white;
-  }
+.active {
+  background-color: teal;
+  color: white;
+}

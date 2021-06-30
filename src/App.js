@@ -1,31 +1,43 @@
 import './App.css';
 import BoardForm from './components/boardForm';
 import Board from './components/board';
+import CardList from './components/CardList'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const App = () => {
-    const [boardsData, setBoardsData] = useState([]);
-    const [chosen, setChosen] = useState();
+    const [boardsData, setBoardsData] = useState([
+        {'board_id': 59, 
+        'owner': 'Ada L.', 
+        'title': 'Hello world'},
+    ]);
 
+    const [selectedBoard, setSelectedBoard] = useState({
+        title: '',
+        owner: '',
+        board_id: null
+      });
+    
+    const [chosen, setChosen] = useState();
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_BACKEND_URL}/boards`, {
         }).then((response) => {
-          setBoardsData(response.data);
+            setBoardsData(response.data);
         })
-      }, []);
+    }, []);
+
+    const currentBoard = (board) => { setSelectedBoard(board) };
     
-    const boardsElements = boardsData.map((board) => {
+    const boardsElements = boardsData.map((board, index) => {
         return (
-            <li>              
                 <Board
-                    key={board.id}
-                    title={board.title}
-                    owner={board.owner}
-                    active={board.title === chosen}
-                    onClick={() => setChosen(board.title)}
-                />
-            </li>);
+                        key={index}
+                        index={index + 1}
+                        board={board}
+                        currentBoard={currentBoard}
+                        active={board.title === chosen}
+                        onClick={() => setChosen(board.title)}        
+                />);          
         }
     );
     
@@ -40,10 +52,9 @@ const App = () => {
             alert('Couldn\'t create a new board.');
         });
     }
-     
     return (
-        <div className='board-header'>
-            <h1>Inspiration Board</h1>
+        <div>
+            <h1 className='board-header'>Inspiration Board</h1>
             <section className='board-sec'>
                 <div>
                     <h2>Boards</h2>
@@ -56,8 +67,10 @@ const App = () => {
                     <BoardForm createNewBoard={createNewBoard}></BoardForm>
                 </div>
             </section>
+            <section>
+                {selectedBoard.board_id ? <CardList selectedBoard={selectedBoard}></CardList> : ''}
+            </section>
         </div>
     );
 }
-
 export default App;

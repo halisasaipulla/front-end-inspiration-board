@@ -8,18 +8,5 @@ const Board = ({ active, title, owner, onClick }) => {
       </div>
     );
   };
-// const Board = (props) => {
-//     const isBackgroundWhite = true;
-//     const isBackground=(isBackgroundWhite)=>{
-//             if (isBackgroundWhite){
-//                 return !isBackgroundWhite
-//             }
-//     }
-    
-//   return (
-//     <div className={isBackground ? 'background-red' : 'background-blue'} />
-//   );
-//     return (<div onClick={changeColor()}>{props.board.title}</div>);
-// };
 
 export default Board;

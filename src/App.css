@@ -1,6 +1,21 @@
-.boards__list {
+.board-list {
   display: flex;
   flex-direction: column;
   font-family: sans-serif;
   text-align: center;
+  overflow: scroll;
+  margin-right: 2rem;
+  border: black solid 1px;
+  max-height: 9rem;
+  min-height: 9rem;
+}
+
+.board-sec {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.board-header {
+  margin: 50px;
 }

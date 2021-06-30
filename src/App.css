@@ -1,21 +1,47 @@
+body {
+animation: 50000ms ease-in-out infinite color-change;
+}
+@keyframes color-change {
+0% {
+    background-color: lightblue;
+}
+20% {
+    background-color: rgb(189, 248, 189);
+}
+40% {
+    background-color: lightsteelblue;
+}
+60% {
+    background-color: rgb(236, 172, 172);
+}
+80% {
+    background-color:lightyellow;
+}
+100% {
+    background-color:rgb(184, 228, 226);
+}
+}
 .board-list {
-  display: flex;
-  flex-direction: column;
-  font-family: sans-serif;
-  text-align: center;
-  overflow: scroll;
-  margin-right: 2rem;
-  border: black solid 1px;
-  max-height: 9rem;
-  min-height: 9rem;
+display: flex;
+flex-direction: column;
+font-family: sans-serif;
+text-align: center;
+overflow: scroll;
+margin-right: 2rem;
+border: black solid 1px;
+border-radius: 3px;
+max-height: 15vh;
+min-height: 15vh;
+max-width: 20vw;
+min-width: 20vw;
+background-color: #e4e6e7;
+padding: 0;
 }
-
 .board-sec {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
 }
-
 .board-header {
-  margin: 50px;
+margin-left: 15%;
 }

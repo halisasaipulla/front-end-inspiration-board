@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
 
-* {
+/* * {
     border-style: solid;
     border-color: red;
-}
+} */
 body {
 animation: 50000ms ease-in-out infinite color-change;
 }
@@ -36,12 +36,15 @@ overflow: scroll;
 margin-right: 2rem;
 border: black solid 1px;
 border-radius: 3px;
-max-height: 15vh;
+/* max-height: 15vh;
 min-height: 15vh;
 max-width: 20vw;
-min-width: 20vw;
+min-width: 20vw; */
+
 background-color: #e4e6e7;
 padding: 0;
+width: 100%
+
 }
 .board-sec {
 display: flex;
@@ -66,3 +69,5 @@ color:rgb(59, 59, 59);
 .board-sec div {
 width: 40%;
 }
+
+

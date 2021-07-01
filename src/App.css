@@ -1,26 +1,28 @@
 body {
-animation: 50000ms ease-in-out infinite color-change;
+    animation: 50000ms ease-in-out infinite color-change;
 }
+
 @keyframes color-change {
-0% {
-    background-color: lightblue;
+    0% {
+        background-color: lightblue;
+    }
+    20% {
+        background-color: rgb(189, 248, 189);
+    }
+    40% {
+        background-color: lightsteelblue;
+    }
+    60% {
+        background-color: rgb(236, 172, 172);
+    }
+    80% {
+        background-color:lightyellow;
+    }
+    100% {
+        background-color:rgb(184, 228, 226);
+    }
 }
-20% {
-    background-color: rgb(189, 248, 189);
-}
-40% {
-    background-color: lightsteelblue;
-}
-60% {
-    background-color: rgb(236, 172, 172);
-}
-80% {
-    background-color:lightyellow;
-}
-100% {
-    background-color:rgb(184, 228, 226);
-}
-}
+
 .board-list {
 display: flex;
 flex-direction: column;

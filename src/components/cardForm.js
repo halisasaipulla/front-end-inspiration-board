@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-// import './cardForm.css';
+import './cardForm.css';
 
 const CardForm = ({createNewCard}) => {
     const [message, setMessage]=useState('');
+    const [colour, setColour]=useState('');
     
     const handleMessageChange = (e) => {
         console.log(e.target.value); 
@@ -14,7 +15,14 @@ const CardForm = ({createNewCard}) => {
         
         createNewCard({ message });
         setMessage('');  
-    };
+    }
+    const changeCardColour=(e)=>{
+        console.log(colour)
+        setColour(e.target.value);
+      
+        
+    }
+    
 
     return (
         <div>
@@ -26,12 +34,24 @@ const CardForm = ({createNewCard}) => {
                     onChange={handleMessageChange}
                     placeholder='Add a message'
                 />
+                 <select 
+                    className="textfield" onChange={changeCardColour}>
+                    {/* // onChange={e => this.setState({ colour: e.target.value})}> */}
+                    <option value="" disabled selected>Post-it Colour</option>
+                    <option value="pink">Pink</option>
+                    <option value="blue">Blue</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="green">Green</option>
+                </select> 
                 
                 
                 <p>Preview: {message} </p>
                 <input type="Submit"
                 // disabled={((title.length === 0) || (owner.length === 0) || (title.length > 40) || (owner.length > 40))}
                 />
+                
+
+          
             </form>
         </div>
     )

@@ -37,11 +37,23 @@ min-width: 20vw;
 background-color: #e4e6e7;
 padding: 0;
 }
+
 .board-sec {
-display: flex;
-flex-direction: row;
-justify-content: space-around;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin-left: 150px;
 }
+
 .board-header {
-margin-left: 15%;
+margin-left: 10%;
+}
+
+.board-list-header {
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+.delete-board-icon {
+    margin-left: 22%;
 }

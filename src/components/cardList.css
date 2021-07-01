@@ -1,0 +1,13 @@
+.card-list-sec {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin-top: 100px;
+    margin-left: 150px;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+    margin: 2rem;
+}

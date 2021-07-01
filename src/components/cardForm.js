@@ -1,47 +1,35 @@
-import React, { useState } from 'react';
-import './boardForm.css';
+import { useState } from 'react';
+import './cardForm.css';
 
-const cardForm = () => {
-    // const [title, setTitle]=useState('');
-    // const [owner, setOwner]=useState('');
-    // const handleTitleChange = (e) => {
-    //     console.log(e.target.value); 
-    //     setTitle(e.target.value); };
-    // const handleOwnerChange = (e) => { 
-    //     console.log(e.target.value); 
-    //     setOwner(e.target.value); };
-    // const submitNewBoard = (e) => {
-    //     e.preventDefault();
-    //     console.log(title);
-    //     console.log(owner);
-    //     createNewCard({ title, owner });
-    //     setTitle('');
-    //     setOwner('');
-    // };
+const CardForm = ({ createNewCard }) => {
+    const [message, setMessage] = useState('');
+
+    const handleMessageChange = (e) => { setMessage(e.target.value) };
+
+    const submitNewCard = (e) => {
+        e.preventDefault();
+        createNewCard(message);
+        setMessage('');
+    };
+
     return (
         <div>
-            <form>
-                <label>Title</label>
+            <h2>Create a New Card</h2>
+            <form onSubmit={submitNewCard} className='new-card-form'>
+                <label>Message</label>
                 <input 
                     type='text'
-                    // value={title}
-                    // onChange={handleTitleChange}
-                    placeholder='Add a title'
+                    value={message}
+                    onChange={handleMessageChange} 
+                    placeholder='Add a message'
                 />
-                <label>Owner</label>
-                <input 
-                    type='text' 
-                    // value={owner}
-                    // onChange={handleOwnerChange}
-                    placeholder='Add a owner name'
-                />
-                {/* <p>Preview: {title} - {owner}</p> */}
+                <p>Preview: {message} </p>
                 <input type="Submit"
-                // disabled={((title.length === 0) || (owner.length === 0) || (title.length > 40) || (owner.length > 40))}
+                disabled={message.length === 0 || message.length > 40}
                 />
             </form>
         </div>
     )
 }
 
-export default cardForm;
+export default CardForm;

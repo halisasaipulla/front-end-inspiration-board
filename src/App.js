@@ -1,33 +1,44 @@
 import './App.css';
 import BoardForm from './components/boardForm';
 import Board from './components/board';
-import CardList from './components/CardList'
+import CardList from './components/cardList'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const App = () => {
-    const [boardsData, setBoardsData] = useState([
-        {'board_id': 59, 
-        'owner': 'Ada L.', 
-        'title': 'Hello world'},
-    ]);
+    const [boardsData, setBoardsData] = useState([]);
 
     const [selectedBoard, setSelectedBoard] = useState({
         title: '',
         owner: '',
         id: null
-      });
+    });
     
     const [chosen, setChosen] = useState();
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/boards`, {
+        axios.get('https://lucky7th-board.herokuapp.com/boards', {
         }).then((response) => {
             setBoardsData(response.data);
+            
         })
     }, []);
 
     const currentBoard = (board) => { setSelectedBoard(board) };
+
+    const deleteBoard = (board_id) => {
+        if (board_id) {
+            axios.delete(`https://lucky7th-board.herokuapp.com/boards/${board_id}`).then((response) => {
+                const newBoardsData = boardsData.filter((existingBoard) => {
+                    return existingBoard.id !== board_id;
+                });
+                setBoardsData(newBoardsData);
+            }).catch((error) => {
+                console.log('Error:', error);
+                alert('Couldn\'t delete the card.');
+            });
+        }
+    };
     
     const boardsElements = boardsData.map((board, index) => {
         return (
@@ -37,13 +48,14 @@ const App = () => {
                         board={board}
                         currentBoard={currentBoard}
                         active={board.title === chosen}
+                        deleteBoard={deleteBoard}
                         onClick={() => setChosen(board.title)}        
                 />);          
         }
     );
     
     const createNewBoard = (newBoard) => {
-        axios.post(`${process.env.REACT_APP_BACKEND_URL}/boards`, newBoard).then((response) => {
+        axios.post('https://lucky7th-board.herokuapp.com/boards', newBoard).then((response) => {
             console.log("Response:", response.data.board);
             const boards = [...boardsData];
             boards.push(response.data.board);
@@ -53,15 +65,21 @@ const App = () => {
             alert('Couldn\'t create a new board.');
         });
     }
+
     return (
         <div>
             <h1 className='board-header'>Inspiration Board</h1>
             <section className='board-sec'>
                 <div>
-                    <h2>Boards</h2>
-                    <ol className="board-list">
+                    <div className='board-list-header'>
+                        <h2>Boards</h2>
+                        <div 
+                            onClick={() => {deleteBoard(selectedBoard.id)}} 
+                            className='delete-board-icon'>🗑</div>
+                    </div>
+                    <div className="board-list">
                         {boardsElements}
-                    </ol>
+                    </div>
                 </div>
                 <div>
                     <h2>Create a New Board</h2>

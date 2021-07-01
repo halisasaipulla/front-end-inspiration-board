@@ -1,9 +1,8 @@
-const Card = () => {
-    return (<div className='note'>
-        <span>Our first card!</span>
-        <div className="note-footer">
-            <small>30/06/2021</small>
-        </div>
+const Card = ({card}) => {
+    return (
+    <div className='note'>
+        <p className='card-item__message'>{card.message}</p>
+        
     </div>);
 };
 

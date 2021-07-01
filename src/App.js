@@ -1,7 +1,7 @@
 import './App.css';
 import BoardForm from './components/boardForm';
 import Board from './components/board';
-import CardList from './components/CardList'
+import CardList from './components/cardList'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -17,7 +17,8 @@ const App = () => {
         owner: '',
         id: null
       });
-    
+    console.log(selectedBoard)
+
     const [chosen, setChosen] = useState();
 
     useEffect(() => {

@@ -17,7 +17,7 @@ const App = () => {
     const [chosen, setChosen] = useState();
 
     useEffect(() => {
-        axios.get('https://lucky7th-board.herokuapp.com/boards', {
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/boards`, {
         }).then((response) => {
             setBoardsData(response.data);
             
@@ -28,7 +28,7 @@ const App = () => {
 
     const deleteBoard = (board_id) => {
         if (board_id) {
-            axios.delete(`https://lucky7th-board.herokuapp.com/boards/${board_id}`).then((response) => {
+            axios.delete(`${process.env.REACT_APP_BACKEND_URL}/boards/${board_id}`).then((response) => {
                 const newBoardsData = boardsData.filter((existingBoard) => {
                     return existingBoard.id !== board_id;
                 });
@@ -60,7 +60,7 @@ const App = () => {
     );
     
     const createNewBoard = (newBoard) => {
-        axios.post('https://lucky7th-board.herokuapp.com/boards', newBoard).then((response) => {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/boards`, newBoard).then((response) => {
             console.log("Response:", response.data.board);
             const boards = [...boardsData];
             boards.push(response.data.board);
@@ -73,7 +73,7 @@ const App = () => {
 
     return (
         <div>
-            <h1 className='board-header'>Inspiration Board</h1>
+            <h1 className='board-header'>Lucky 7th Inspiration Board</h1>
             <section className='board-sec'>
                 <div>
                     <div className='board-list-header'>

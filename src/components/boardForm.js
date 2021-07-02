@@ -7,9 +7,11 @@ const BoardForm = ({ createNewBoard }) => {
     const handleTitleChange = (e) => {
         console.log(e.target.value); 
         setTitle(e.target.value); };
+
     const handleOwnerChange = (e) => { 
         console.log(e.target.value); 
         setOwner(e.target.value); };
+
     const submitNewBoard = (e) => {
         e.preventDefault();
         console.log(title);
@@ -18,8 +20,9 @@ const BoardForm = ({ createNewBoard }) => {
         setTitle('');
         setOwner('');
     };
+    
     return (
-        <div>
+        <div className="create-board-div">
             <form onSubmit={submitNewBoard} className='new-board-form'>
                 <label>Title</label>
                 <input 

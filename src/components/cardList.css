@@ -1,4 +1,18 @@
 .card-list-sec {
+    display: flex;
+    margin-left: 4.5%;
+
+}
+.card-list-sec section {
+    margin-right: 5%;
+
+}
+
+.cards-container {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+    margin: 2rem;
+
+
 }

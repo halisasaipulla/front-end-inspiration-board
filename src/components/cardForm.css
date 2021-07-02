@@ -1,8 +1,8 @@
-.new-board-form {
+.new-card-form {
     display: flex;
     flex-direction: column;
     max-height: 15vh;
     min-height: 15vh;
     max-width: 20vw;
     min-width: 20vw;
-  }
+}

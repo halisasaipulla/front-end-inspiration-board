@@ -21,11 +21,11 @@ const CardForm = ({ createNewCard }) => {
             <h2>Create a New Card</h2>
             <form onSubmit={submitNewCard} className='new-card-form'>
                 <label className="form-title">Message</label>
-                <input 
-                    type='text'
+                <textarea
                     value={message}
                     onChange={handleMessageChange} 
                     placeholder='Add a message'
+                    className="message-box"
                 />
                 <p>Preview: {message} </p>
                 <p className="form-title">Select a sticky note color:</p>

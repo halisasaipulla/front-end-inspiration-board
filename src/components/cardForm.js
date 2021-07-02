@@ -6,6 +6,7 @@ const CardForm = ({ createNewCard }) => {
     const [stickyNoteColor, setStickyNoteColor] = useState('yellow');
 
     const handleMessageChange = (e) => { setMessage(e.target.value) };
+    const handleCardColorChange = (e) => {setStickyNoteColor(e.target.value);}
 
     const submitNewCard = (e) => {
         e.preventDefault();
@@ -13,9 +14,7 @@ const CardForm = ({ createNewCard }) => {
         setMessage('');
     };
 
-    const handleCardColorChange = (e) => {
-        setStickyNoteColor(e.target.value);
-    }
+    
 
     return (
         <div>
@@ -36,9 +35,7 @@ const CardForm = ({ createNewCard }) => {
                     <option value="blue">Blue</option>
                     <option value="green">Green</option>
                 </select>
-                <input type="Submit"
-                disabled={message.length === 0 || message.length > 40}
-                />
+                <input type="Submit" className='submit-btn'/>
             </form>
         </div>
     )

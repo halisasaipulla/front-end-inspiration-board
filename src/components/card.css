@@ -32,9 +32,8 @@
 
 .card-bottom {
     margin: 10px;
+    cursor: pointer;
 }
-
-
 
 /* .note {
     font-family: 'Kalam', cursive;

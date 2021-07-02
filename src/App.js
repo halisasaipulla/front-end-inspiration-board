@@ -1,7 +1,7 @@
 import './App.css';
 import BoardForm from './components/boardForm.js';
 import Board from './components/board.js';
-import CardList from './components/CardList.js'
+import CardList from './components/cardList.js'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -17,7 +17,7 @@ const App = () => {
     const [chosen, setChosen] = useState();
 
     useEffect(() => {
-        axios.get('https://lucky7th-board.herokuapp.com/boards', {
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/boards`, {
         }).then((response) => {
             setBoardsData(response.data);
             
@@ -28,7 +28,7 @@ const App = () => {
 
     const deleteBoard = (board_id) => {
         if (board_id) {
-            axios.delete(`https://lucky7th-board.herokuapp.com/boards/${board_id}`).then((response) => {
+            axios.delete(`${process.env.REACT_APP_BACKEND_URL}/boards/${board_id}`).then((response) => {
                 const newBoardsData = boardsData.filter((existingBoard) => {
                     return existingBoard.id !== board_id;
                 });
@@ -60,7 +60,7 @@ const App = () => {
     );
     
     const createNewBoard = (newBoard) => {
-        axios.post('https://lucky7th-board.herokuapp.com/boards', newBoard).then((response) => {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/boards`, newBoard).then((response) => {
             console.log("Response:", response.data.board);
             const boards = [...boardsData];
             boards.push(response.data.board);

@@ -8,7 +8,7 @@ const CardList = ({ selectedBoard }) => {
     const [cardsData, setCardsData] = useState([]);
 
     useEffect(() => {
-        axios.get(`https://lucky7th-board.herokuapp.com/boards/${selectedBoard.id}/cards`).then((response)=> {
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/boards/${selectedBoard.id}/cards`).then((response)=> {
             setCardsData(response.data.cards);
         }).catch((error) => {
             console.log('Error:', error);
@@ -17,7 +17,7 @@ const CardList = ({ selectedBoard }) => {
     }, [selectedBoard]);
 
     const deleteCard = (card) => {
-        axios.delete(`https://lucky7th-board.herokuapp.com/cards/${card.id}`).then((response) => {
+        axios.delete(`${process.env.REACT_APP_BACKEND_URL}/cards/${card.id}`).then((response) => {
             const newCardsData = cardsData.filter((existingCard) => {
                 return existingCard.id !== card.id;
             });
@@ -29,7 +29,7 @@ const CardList = ({ selectedBoard }) => {
     };
 
     const likeCard = (card) => {
-        axios.put(`https://lucky7th-board.herokuapp.com/cards/${card.id}/like`).then((response) => {
+        axios.put(`${process.env.REACT_APP_BACKEND_URL}/cards/${card.id}/like`).then((response) => {
             const newCardsData = cardsData.map((existingCard) => {
             return existingCard.id !== card.id ? existingCard : {...card, likes_count: card.likes_count + 1}
         });
@@ -52,7 +52,7 @@ const CardList = ({ selectedBoard }) => {
 
     const createNewCard = (message, color) => {
         axios.post(
-            `https://lucky7th-board.herokuapp.com/boards/${selectedBoard.id}/cards`,
+            `${process.env.REACT_APP_BACKEND_URL}/boards/${selectedBoard.id}/cards`,
             {message, color}
         ).then((response) => {
             const cards = [...cardsData];

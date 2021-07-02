@@ -39,9 +39,7 @@ const BoardForm = ({ createNewBoard }) => {
                     placeholder='Add a owner name'
                 />
                 <p>Preview: {title} - {owner}</p>
-                <input type="Submit"
-                disabled={((title.length === 0) || (owner.length === 0) || (title.length > 40) || (owner.length > 40))}
-                />
+                <input type="Submit" className='submit-btn'/>
             </form>
         </div>
     )
